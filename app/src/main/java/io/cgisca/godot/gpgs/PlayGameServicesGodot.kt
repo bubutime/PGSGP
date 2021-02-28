@@ -180,7 +180,8 @@ class PlayGameServicesGodot(godot: Godot) : GodotPlugin(godot), AchievementsList
         val signInOptions = run {
             val signInOptionsBuilder = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
             if (enableSaveGamesFunctionality)
-                signInOptionsBuilder.requestScopes(Drive.SCOPE_APPFOLDER).requestId()
+                //signInOptionsBuilder.requestScopes(Drive.SCOPE_APPFOLDER).requestId()
+                signInOptionsBuilder.requestScopes(Scope(Scope.DRIVE_APPFOLDER))
             if (requestToken.isNotEmpty()) {
                 signInOptionsBuilder.requestIdToken(requestToken)
             }
